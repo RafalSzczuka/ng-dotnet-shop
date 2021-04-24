@@ -35,11 +35,12 @@
         <app-paging-header [totalCount]="totalCount" [shopParams]="shopParams"></app-paging-header>
 
         <div class="form-inline mt-2">
-          <input type="text" class="form-control mr-2" placeholder="Search" style="width: 300px;">
-          <button class="btn btn-outline-primary my-2">Search</button>
-          <button class="btn btn-outline-success my-2 ml-2">Reset</button>
+          <input (keyup.enter)="onSearch()" #search type="text" class="form-control mr-2" placeholder="Search" style="width: 300px;">
+          <button (click)="onSearch()" class="btn btn-outline-primary my-2">Search</button>
+          <button (click)="onReset()" class="btn btn-outline-success my-2 ml-2">Reset</button>
         </div>
       </div>
+
       <div class="row">
         <div class="col-4 mb-4" *ngFor="let product of products">
           <app-product-item [product]="product"></app-product-item>
